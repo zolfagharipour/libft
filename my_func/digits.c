@@ -14,9 +14,3 @@ int	ft_nbdigits(int nb)
 	}
 	return (nbdig);
 }
-
-
-int main ()
-{
-	printf("%d\n", ft_nbdigits(-123));
-}

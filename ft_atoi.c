@@ -9,7 +9,7 @@ int	ft_atoi(const char *nptr)
 	sign = 1;
 	result = 0;
 	i = 0;
-	while (nptr[i] == ' ')
+	while (ft_isspace(nptr[i]))
 	{
 		i++;
 	}

@@ -7,7 +7,8 @@ void print_content(void *content)
 
 void	del_content(void *content)
 {
-	free(content);
+	(void)	content;
+	//free(content);
 }
 
 
@@ -19,16 +20,16 @@ int	main()
 	t_list	*current = NULL;
 	
 	head = ft_lstnew((void *)"Erdapfel");
-	current = ft_lstnew("Milch");
+	current = ft_lstnew((void *)"Milch");
 	ft_lstadd_front(&head, current);
-	current = ft_lstnew("Brot");
+	current = ft_lstnew((void *)"Brot");
 	ft_lstadd_back(&head, current);
 	printf("Last: %s\n", (char *)ft_lstlast(head)->content);
 	printf("Size: %d\n\n", ft_lstsize(head));
 
 	ft_lstiter(head, print_content);
-	ft_lstdelone(current, del_content);
-	ft_lstclear(&current, del_content);
+	//ft_lstdelone(current, del_content);
+	ft_lstclear(&head, del_content);
 	while (head != NULL)
 	{
 		printf("--%s\n", (char *)head->content);
