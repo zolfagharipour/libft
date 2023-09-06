@@ -4,6 +4,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 #	include <stdio.h>
+#	include <string.h>
 
 typedef struct s_list
 {
@@ -35,11 +36,13 @@ int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isalnum(int c);
-int		ft_isalnum(int c);
+int		ft_isdigit(int c);
+int		ft_isprint(int c);
+int		ft_isspace(int c);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_toupper(int c);
-int		ft_toupper(int c);
+int		ft_tolower(int c);
 int		ft_lstsize(t_list *lst);
 
 char	*ft_itoa(int n);

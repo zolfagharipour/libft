@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mzolfagh <zolfagharipour@gmail.com>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/05 13:15:37 by mzolfagh          #+#    #+#             */
+/*   Updated: 2023/09/05 13:15:39 by mzolfagh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_word_counter(char const *str, char c)
@@ -7,7 +19,7 @@ static int	ft_word_counter(char const *str, char c)
 
 	word_begin = 1;
 	word_counter = 0;
-	while(*str)
+	while (*str)
 	{
 		if (word_begin == 1 && *str != c)
 		{
@@ -29,7 +41,7 @@ static char	**ft_free_malloc(char **ptr, int j)
 	return (0);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		j;
@@ -49,11 +61,12 @@ char **ft_split(char const *s, char c)
 			return (ptr);
 		while (s[i] != c && s[i])
 			i++;
-		if (!(ptr[j] = (char *)malloc(sizeof(char) * (i + 1))))
+		ptr[j] = (char *)malloc(sizeof(char) * (i + 1));
+		if (!(ptr))
 			return (ft_free_malloc(ptr, j));
 		ft_strlcpy(ptr[j], s, i + 1);
 		j++;
-		s +=i;
+		s += i;
 	}
 	return (ptr);
 }

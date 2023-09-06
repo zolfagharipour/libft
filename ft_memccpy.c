@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mzolfagh <zolfagharipour@gmail.com>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/05 13:06:19 by mzolfagh          #+#    #+#             */
+/*   Updated: 2023/09/05 13:06:25 by mzolfagh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
@@ -19,7 +31,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 			return (dest);
 		}
 		src++;
-		i++;	
+		i++;
 	}
 	return (dest);
 }
