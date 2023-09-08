@@ -5,41 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzolfagh <zolfagharipour@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/05 13:27:53 by mzolfagh          #+#    #+#             */
-/*   Updated: 2023/09/05 13:27:55 by mzolfagh         ###   ########.fr       */
+/*   Created: 2023/09/08 14:02:59 by mzolfagh          #+#    #+#             */
+/*   Updated: 2023/09/08 14:03:02 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int	set_check(char c, char const *set)
 {
-	int		s1_len;
-	int		set_len;
-	int		trim;
-	int		i;
-	char	*ptr;
+	int	i;
 
-	trim = 0;
 	i = 0;
-	s1_len = ft_strlen(s1);
-	set_len = ft_strlen(set);
-	if (!ft_memcmp(s1, set, set_len))
-		trim += 1;
-	if (!ft_memcmp(s1 + s1_len - set_len, set, set_len))
-		trim += 4;
-	s1_len -= (trim % 3) * set_len;
-	ptr = (char *)malloc(sizeof(char) * (s1_len + 1));
-	if (!(ptr))
-		return (0);
-	while (i < s1_len)
+	while (set[i] != '\0')
 	{
-		if (trim == 1 || trim == 5)
-			ptr[i] = s1[set_len + i];
-		else
-			ptr[i] = s1[i];
+		if (c == set [i])
+			return (1);
 		i++;
 	}
-	ptr[i] = '\0';
-	return (ptr);
+	return (0);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	int		i;
+	char	*s2;
+
+	s1 = (char *)s1;
+	while (*s1 != '\0' && set_check(*s1, set))
+		s1++;
+	i = ft_strlen(s1) -1;
+	while (i > 0 && set_check(s1[i], set))
+		i--;
+	i++;
+	s2 = (char *)malloc(sizeof(char) * i + 1);
+	if (!s2)
+		return (0);
+	ft_memcpy(s2, s1, i);
+	s2[i] = '\0';
+	return (s2);
 }

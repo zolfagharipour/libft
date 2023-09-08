@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzolfagh <zolfagharipour@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/05 13:22:55 by mzolfagh          #+#    #+#             */
-/*   Updated: 2023/09/05 13:22:57 by mzolfagh         ###   ########.fr       */
+/*   Created: 2023/09/08 18:55:24 by mzolfagh          #+#    #+#             */
+/*   Updated: 2023/09/08 18:55:27 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
-
-	i = 0;
-	while (src[i] != '\0' && i < size - 1 && size != 0)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	if (size != 0)
-		dst[i] = '\0';
-	i = 0;
-	while (src[i] != '\0')
-		i++;
-	return (i);
+	
 }
