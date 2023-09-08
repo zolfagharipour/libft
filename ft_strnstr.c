@@ -21,11 +21,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	i = 0;
 	l_len = ft_strlen(little);
 	ptr = (char *)big;
-	while (i < len && *ptr != '\0')
+	if (ft_strlen(little) == 0)
+		return (ptr);
+	while (i < len - l_len + 1 && *ptr != '\0' && len != 0)
 	{
-		if (len - i < l_len)
-			l_len = len - i;
-		if (ft_strncmp(ptr, little, l_len) == 0)
+		if (ft_strncmp(ptr, little, l_len) == 0 && ft_strlen(ptr) >= l_len)
 			return (ptr);
 		ptr++;
 		i++;
