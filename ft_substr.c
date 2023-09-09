@@ -31,3 +31,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	return (ptr);
 }
+
+int main()
+{
+	char *s = "Hello";
+	printf("%s\n", ft_substr(s, 100, 1));
+}

@@ -41,6 +41,16 @@ static char	**ft_free_malloc(char **ptr, int j)
 	return (0);
 }
 
+static int	s_plus(const char *s, char c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] == c)
+		i++;
+	return (i);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	int		i;
@@ -55,8 +65,7 @@ char	**ft_split(char const *s, char c)
 	while (*s)
 	{
 		i = 0;
-		while (*s == c)
-			s++;
+		s += s_plus(s, c);
 		if (*s == '\0')
 			return (ptr);
 		while (s[i] != c && s[i])

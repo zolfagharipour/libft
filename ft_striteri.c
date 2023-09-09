@@ -11,10 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-void
-iter(unsigned int i, char * s) {
-	*s += i;
-}
+
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
