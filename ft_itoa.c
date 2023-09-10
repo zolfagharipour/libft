@@ -29,28 +29,28 @@ static int	ft_nlen(int n)
 
 char	*ft_itoa(int n)
 {
-	char	*nbr;
-	int		i;
+	long int	ncpy;
+	char		*nbr;
+	int			i;
 
-	if (n == -2147483648)
-		return ("-2147483648");
-	i = ft_nlen (n);
-	nbr = (char *)malloc(sizeof(char) * (ft_nlen(n) + 1));
+	ncpy = n;
+	i = ft_nlen (ncpy);
+	nbr = (char *)malloc(sizeof(char) * (i + 1));
 	if (!nbr)
 		return (0);
-	if (n < 0)
+	nbr[i] = '\0';
+	if (ncpy < 0)
 	{
 		nbr[0] = '-';
-		n *= -1;
+		ncpy *= -1;
 	}
-	nbr[i] = '\0';
-	if (n == 0)
+	if (ncpy == 0)
 		nbr[0] = '0';
-	while (n > 0)
+	while (ncpy > 0)
 	{
 		i--;
-		nbr[i] = (n % 10) + 48;
-		n /= 10;
+		nbr[i] = (ncpy % 10) + 48;
+		ncpy /= 10;
 	}
 	return (nbr);
 }
