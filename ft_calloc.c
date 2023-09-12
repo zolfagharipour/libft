@@ -18,11 +18,13 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void				*ptr;
 
 	f_size = nmemb * size;
+	if (size == 0 || nmemb == 0)
+		return(malloc(0));
 	if (f_size > 2147483647)
-		return (0);
+		return (NULL);
 	ptr = malloc(f_size);
 	if (!ptr)
-		return (0);
+		return (NULL);
 	ft_bzero(ptr, f_size);
 	return (ptr);
 }

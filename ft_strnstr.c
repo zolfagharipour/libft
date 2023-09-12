@@ -15,19 +15,19 @@
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
-	char	*ptr;
 	size_t	l_len;
 
 	i = 0;
 	l_len = ft_strlen(little);
-	ptr = (char *)big;
 	if (ft_strlen(little) == 0)
-		return (ptr);
-	while (i < len - l_len + 1 && *ptr != '\0' && len != 0)
+		return ((char *)big);
+	if (*big == 0 || len == 0)
+		return (0);
+	while (i < len - l_len + 1 && *big != '\0' && len != 0)
 	{
-		if (ft_strncmp(ptr, little, l_len) == 0 && ft_strlen(ptr) >= l_len)
-			return (ptr);
-		ptr++;
+		if (ft_strncmp(big, little, l_len) == 0 && ft_strlen(big) >= l_len)
+			return ((char *)big);
+		big++;
 		i++;
 	}
 	return (0);
