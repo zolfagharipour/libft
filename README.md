@@ -2,6 +2,10 @@
 
 `libft` is a comprehensive C library that combines three distinct projects to extend the functionality of the C standard library, implement a custom `printf` function, and enable line-by-line reading from a file descriptor until EOF.
 
+## Warning for 42 Students
+
+This repository is intended as a reference and educational tool. **42 students are strongly advised not to copy this code without fully understanding its functionality.** Plagiarism in any form is against 42's principles and could lead to serious academic consequences. Use this repository responsibly to learn and better understand how to implement similar functionalities on your own.
+
 ## Components
 
 ### 1. Libft
@@ -29,9 +33,9 @@ The `get_next_line` function allows reading from a file descriptor line by line 
 
 ## Installation
 
-To use `libft` in your projects, clone this repository and compile the source code:
+To use `libft` in your projects, follow these steps to clone the repository and compile the source code:
 
 ```bash
-git clone https://github.com/zolfagharipour/libft.git
+git clone https://github.com/yourusername/libft.git
 cd libft
 make
