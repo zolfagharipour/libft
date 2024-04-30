@@ -61,7 +61,7 @@ char	**ft_split(char const *s, char c)
 	ptr = (char **)malloc(sizeof(char *) * (ft_word_counter(s, c) + 1));
 	if (!ptr)
 		return (0);
-	ptr[ft_word_counter(s, c)] = 0;
+	ptr[ft_word_counter(s, c)] = NULL;
 	while (*s)
 	{
 		i = 0;
@@ -71,7 +71,7 @@ char	**ft_split(char const *s, char c)
 		while (s[i] != c && s[i])
 			i++;
 		ptr[j] = (char *)malloc(sizeof(char) * (i + 1));
-		if (!(ptr))
+		if (!(ptr[j]))
 			return (ft_free_malloc(ptr, j));
 		ft_strlcpy(ptr[j], s, i + 1);
 		j++;

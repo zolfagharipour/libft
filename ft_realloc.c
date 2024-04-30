@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzolfagh <zolfagharipour@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/05 13:22:32 by mzolfagh          #+#    #+#             */
-/*   Updated: 2023/09/05 13:22:34 by mzolfagh         ###   ########.fr       */
+/*   Created: 2023/09/05 13:20:30 by mzolfagh          #+#    #+#             */
+/*   Updated: 2023/09/05 13:20:32 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_realloc(char *s, size_t size)
 {
-	size_t		len;
+	size_t	i;
+	size_t	len;
+	char	*ptr;
 
-	len = ft_strlen(dst);
-	if (len > size)
-		return (size + ft_strlen(src));
-	len += ft_strlen(src);
-	while (*dst)
+	len = ft_strlen(s);
+	ptr = (char *)malloc((size) * sizeof(char));
+	if (!ptr)
+		return (0);
+	i = 0;
+	while (i < len || i < size - 1)
 	{
-		dst++;
-		size--;
+		ptr[i] = s[i];
+		i++;
 	}
-	while (*src && size > 1)
-	{
-		*dst = *src;
-		dst++;
-		src++;
-		size--;
-	}
-	*dst = '\0';
-	return (len);
+	if (size > 0)
+		ptr[i] = '\0';
+	free (s);
+	return (ptr);
 }
