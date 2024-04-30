@@ -32,6 +32,6 @@ The `get_next_line` function allows reading from a file descriptor line by line 
 To use `libft` in your projects, clone this repository and compile the source code:
 
 ```bash
-git clone https://github.com/yourusername/libft.git
+git clone https://github.com/zolfagharipour/libft.git
 cd libft
 make
